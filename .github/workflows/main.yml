@@ -5,7 +5,7 @@ on:
 jobs:
   job_one:
     name: Deploy
-    runs-on: ubuntu-lastest
+    runs-on: windows-latest
     steps:
     - name: testing xxx.com server ssh connection
       uses: appleboy/ssh-action@master
