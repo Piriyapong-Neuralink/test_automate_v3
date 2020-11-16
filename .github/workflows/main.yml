@@ -1,20 +1,22 @@
-name: Deployment WorKflow
-on:
-  push:
-    branches: [main]
+
+name: test
+on: push
+
+env:
+  FIRST_NAME: Mona
 jobs:
-  job_one:
-    name: Deploy
-    runs-on: windows-latest
+  build:
+    runs-on: ubuntu-latest
     steps:
-    - name: testing xxx.com server ssh connection
-      uses: appleboy/ssh-action@master
-      with: 
-        host: localhost
-        username: Piriyapong
-        key: ${{secrets.OMG_SECRET}}
-        port: 22
-        script: |
-          cd localhost-website
-          git pull origin master
-          git status
+      - name: ls -a via OPEN SSH Private Key
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            cd /tmp
+            ls -a
+            echo "env_var:$FIRST_NAME"
+          host: ${{ secrets.HOST }}
+          user: root
+          key: ${{ secrets.PRIVATE_KEY}}
+#          pass: ${{ secrets.PASS }}
+          args: "-tt -vvv"
