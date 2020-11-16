@@ -6,7 +6,7 @@ env:
   FIRST_NAME: Mona
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-lastest
     steps:
       - name: ls -a via OPEN SSH Private Key
         uses: fifsky/ssh-action@master
@@ -15,7 +15,7 @@ jobs:
             cd /tmp
             ls -a
             echo "env_var:$FIRST_NAME"
-          host: ${{ secrets.HOST }}
+          host: localhost
           user: root
           key: ${{ secrets.PRIVATE_KEY}}
 #          pass: ${{ secrets.PASS }}
