@@ -1,22 +1,19 @@
 
 name: test
-on: push
-
-env:
-  FIRST_NAME: Mona
+on: 
+  push:
+    branches: [main]
 jobs:
-  build:
+  job_one:
+    name: Deploy
     runs-on: windows-lastest
     steps:
       - name: ls -a via OPEN SSH Private Key
         uses: fifsky/ssh-action@master
         with:
-          command: |
-            cd /tmp
-            ls -a
-            echo "env_var:$FIRST_NAME"
           host: localhost
           user: Piriyapong
           key: ${{ secrets.OMG_SECRET}}
-#          pass: ${{ secrets.PASS }}
-          args: "-tt -vvv"
+          port: 22 
+          script: |
+            pwd
