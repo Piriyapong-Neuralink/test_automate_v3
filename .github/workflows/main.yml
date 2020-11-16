@@ -19,6 +19,6 @@ jobs:
         ORIGIN: localhost
         SSHKEY: ${{ secrets.OMG_SECRET}}
         NAME: production
-        PORT: 22
+        PORT: 8022
         USER: Piriyapong
     - run: ssh production ls --help
