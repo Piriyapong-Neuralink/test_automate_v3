@@ -1,7 +1,7 @@
 name: Deployment WorKflow
 on:
   push:
-    branches: [master]
+    branches: [main]
 jobs:
   job_one:
     name: Deploy
