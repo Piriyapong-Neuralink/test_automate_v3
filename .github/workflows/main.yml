@@ -1,19 +1,24 @@
+  
+name: Windows
 
-name: test
-on: 
+on:
   push:
-    branches: [main]
+    branches:
+    - main
+
 jobs:
-  job_one:
-    name: Deploy
-    runs-on: windows-lastest
+  test:
+    runs-on: windows-latest
     steps:
-      - name: ls -a via OPEN SSH Private Key
-        uses: fifsky/ssh-action@master
-        with:
-          host: localhost
-          user: Piriyapong
-          key: ${{ secrets.OMG_SECRET}}
-          port: 22 
-          script: |
-            pwd
+    - uses: LuisEnMarroquin/setup-ssh-action@v1.8
+      with:
+        SSHKEY: ${{ secrets.KEY }}
+    - run: ssh -T git@github.com || true
+    - uses: LuisEnMarroquin/setup-ssh-action@v1.8
+      with:
+        ORIGIN: localhost
+        SSHKEY: ${{ secrets.OMG_SECRET}}
+        NAME: production
+        PORT: 22
+        USER: Piriyapong
+    - run: ssh production ls --help
