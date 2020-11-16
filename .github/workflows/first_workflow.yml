@@ -1,0 +1,20 @@
+name: Deployment WorKflow
+on:
+  push:
+    branches: [master]
+jobs:
+  job_one:
+    name: Deploy
+    run-on: ubuntu-lastest
+    steps:
+    - name: testing xxx.com server ssh connection
+      uses: appleboy/ssh-action@master
+      with: 
+        host: xxx.com
+        username: Piriyapong
+        key: ${{secrets.OMG_SECRET}}
+        port: 22
+        script: |
+          cd xxx-website
+          git pull origin master
+          git status
