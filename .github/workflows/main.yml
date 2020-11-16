@@ -16,9 +16,7 @@ jobs:
     - run: ssh -T git@github.com || true
     - uses: LuisEnMarroquin/setup-ssh-action@v1.8
       with:
-        ORIGIN: localhost
+        
         SSHKEY: ${{ secrets.OMG_SECRET}}
         NAME: production
-        PORT: 8022
-        USER: Piriyapong
     - run: ssh production ls --help
