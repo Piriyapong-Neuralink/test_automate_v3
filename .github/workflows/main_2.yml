@@ -32,9 +32,17 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       - name: Generate new keygen -> public key, private key, and keyhost
+        run: | 
           ssh-keygen
           echo -ne '\n'
           echo -ne '\n'
           echo -ne '\n'
+      - name: Copy public key of client to authorized file in windows server
+        run: |
           ssh-copy-id srichand@172.16.110.33
+      - name: Connect to windows server's cmd.
+        run: |
           ssh srichand@172.16.110.33
+      - name: cmd 
+        run: | 
+          ipconfig
