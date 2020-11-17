@@ -20,8 +20,17 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Deploy to Staging server 
+        uses: easingthemes/ssh-deploy@v2.1.5
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.OMG_SECRET}}
+          ARGS: "-rltgoDzv0"
+          SOURCE: "/"
+          REMOTE_HOST:  172.16.110.33
+          REMOTE_USER:  Srichand  
       - uses: actions/checkout@v2
-
+      
+      
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
@@ -46,3 +55,4 @@ jobs:
       - name: cmd 
         run: | 
           ipconfig
+      
