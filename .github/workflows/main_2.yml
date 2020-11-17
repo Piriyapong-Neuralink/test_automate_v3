@@ -31,6 +31,10 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: Generate new keygen -> public key, private key, and keyhost
           ssh-keygen
+          echo -ne '\n'
+          echo -ne '\n'
+          echo -ne '\n'
           ssh-copy-id srichand@172.16.110.33
           ssh srichand@172.16.110.33
