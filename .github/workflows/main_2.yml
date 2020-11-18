@@ -19,6 +19,18 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Create SSH key
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$zzz" > ../private.key
+          sudo chmod 600 ../private.key
+          echo "172.16.110.33" > ~/.ssh/known_hosts
+        shell: bash
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+          SSH_KNOWN_HOSTS: 172.16.110.33
+          SSH_KEY_PATH: ${{ github.workspace }}/../private.key
+            
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Deploy to Staging server 
         uses: easingthemes/ssh-deploy@v2.1.5
