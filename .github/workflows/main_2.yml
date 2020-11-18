@@ -24,10 +24,10 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
           SSH_PRIVATE_KEY: ${{secrets.xxx}}
-          ARGS: "-rltgoDzv0"
           SOURCE: "/"
           REMOTE_HOST:  172.16.110.33
           REMOTE_USER:  Srichand  
+          TARGET: 'C:\Users\srichand'
       - uses: actions/checkout@v2
       
       
