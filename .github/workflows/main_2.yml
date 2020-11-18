@@ -23,7 +23,7 @@ jobs:
       - name: Deploy to Staging server 
         uses: easingthemes/ssh-deploy@v2.1.5
         env:
-          SSH_PRIVATE_KEY: ${{secrets.xxx}}
+          SSH_PRIVATE_KEY: ${{secrets.zzz}}
           SOURCE: "/"
           REMOTE_HOST:  172.16.110.33
           REMOTE_USER:  Srichand  
