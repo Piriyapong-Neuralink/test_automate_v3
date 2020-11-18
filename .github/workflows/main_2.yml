@@ -27,7 +27,7 @@ jobs:
           echo "172.16.110.33" > ~/.ssh/known_hosts
         shell: bash
         env:
-          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+          SSH_PRIVATE_KEY: ${{secrets.aaa}}
           SSH_KNOWN_HOSTS: 172.16.110.33
           SSH_KEY_PATH: ${{ github.workspace }}/../private.key
             
