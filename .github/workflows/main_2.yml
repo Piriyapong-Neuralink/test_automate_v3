@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: test
         run: |
-          var=${{secrets.aaa}};
+          var=$secrets.aaa;
           mkdir -p ~/.ssh/
           destdir=/home/runner/work/test_automate_v3/test_automate_v3/.ssh
 
