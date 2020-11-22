@@ -33,7 +33,7 @@ jobs:
       - name: create connection to windows server
         run: |
           ssh srichand@192.168.1.46
-      - name: test_control
+    
       - name: testss
       
       
