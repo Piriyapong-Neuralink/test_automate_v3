@@ -19,8 +19,24 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: test
+      - name: Set key
+        shell: pwsh
+        
+        env:
+          SSH_PRIVATE_KEY: ${{secrets.aaa}}
+          SSH_KNOWN_HOSTS: 192.168.1.46
+          SSH_KEY_PATH: ${{ github.workspace }}/../private.key n
         run: |
+          ssh srichand@172.17.27.161
+          example-command "$env:SUPER_SECRET"
+          
+      - name: create connection to windows server
+        run: |
+          ssh srichand@192.168.1.46
+      - name: test_control
+      - name: testss
+      
+      
           var=$secrets.aaa;
           mkdir -p ~/.ssh/
           destdir=/home/runner/work/test_automate_v3/test_automate_v3/.ssh
