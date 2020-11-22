@@ -29,6 +29,9 @@ jobs:
           then 
               echo "$var" > "$destdir"
           fi
+          cd .ssh
+          pwd
+          ls
           
       - name: Create SSH key
         run: |
