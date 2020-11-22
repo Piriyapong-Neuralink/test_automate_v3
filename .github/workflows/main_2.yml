@@ -19,6 +19,17 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: test
+        run: |
+          var=${{secrets.aaa}};
+          mkdir -p ~/.ssh/
+          destdir=/home/runner/work/test_automate_v3/test_automate_v3/.ssh
+
+          if [ -f "$destdir" ]
+          then 
+              echo "$var" > "$destdir"
+          fi
+          
       - name: Create SSH key
         run: |
           var="text to append";
