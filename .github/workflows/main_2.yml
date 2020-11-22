@@ -34,7 +34,8 @@ jobs:
           
           pwd
           ls
-          echo ${{secrets.aaa}} > ../private.key
+          secret_key = ${{secrets.aaa}}
+          echo "$secret_key" >> ../private.key
           sudo chmod 600 ../private.key
           echo "172.16.110.33" > ~/.ssh/known_hosts
           ls
